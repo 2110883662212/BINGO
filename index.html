@@ -2,30 +2,30 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Bingo Online</title>
-    <link rel="stylesheet" href="/style.css">
+    <title>Bingo</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <img src="/BINGO.jfif" class="bingo">
 
-    <div class="bola">{{ bola }}</div>
+<h1>BINGO</h1>
 
-    <form method="post" action="/sacar_numero">
-        <button type="submit">SACAR NÚMERO</button>
-    </form>
+<div class="controls">
+    <button id="spinBtn">🎱 Girar pelota</button>
+    <button id="resetBtn">🔄 Reiniciar</button>
+</div>
 
-    <h2>HISTORIAL DE NÚMEROS</h2>
-    <table class="historial-tabla">
-        {% for i in range(1, 76) %}
-            {% if (i-1) % 25 == 0 %}
-            <tr>
-            {% endif %}
-            <td {% if i in numeros_salidos %}class="salido"{% endif %}>{{ "%02d"|format(i) }}</td>
-            {% if i % 25 == 0 %}
-            </tr>
-            {% endif %}
-        {% endfor %}
-    </table>
+<div class="number-display" id="currentNumber">
+    —
+</div>
+
+<table id="bingoTable">
+    <tr id="row1"></tr>
+    <tr id="row2"></tr>
+    <tr id="row3"></tr>
+</table>
+
+<script src="script.js"></script>
 </body>
 </html>
+
 
