@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bingo Online</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <img src="/static/images/BINGO.jfif" class="bingo">
+
+    <div class="bola">{{ bola }}</div>
+
+    <form method="post" action="/sacar_numero">
+        <button type="submit">SACAR NÚMERO</button>
+    </form>
+
+    <h2>HISTORIAL DE NÚMEROS</h2>
+    <table class="historial-tabla">
+        {% for i in range(1, 76) %}
+            {% if (i-1) % 25 == 0 %}
+            <tr>
+            {% endif %}
+            <td {% if i in numeros_salidos %}class="salido"{% endif %}>{{ "%02d"|format(i) }}</td>
+            {% if i % 25 == 0 %}
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+</body>
+</html>
