@@ -57,3 +57,23 @@ async def sacar_numero(request: Request):
         "bola": bola_mostrar,
         "numeros_salidos": numeros_salidos
     })
+
+@app.post("/reiniciar_bingo", response_class=HTMLResponse)
+async def reiniciar_bingo(request: Request):
+    global numeros_disponibles, numeros_salidos, estado_bola
+
+    # Reiniciar listas
+    numeros_disponibles = list(range(1, 76))
+    numeros_salidos = []
+
+    # Reiniciar estado de la bola
+    estado_bola = {
+        "numero_actual": None,
+        "etapa": 0
+    }
+
+    return templates.TemplateResponse("index.html", {
+        "request": request,
+        "bola": "?",
+        "numeros_salidos": numeros_salidos
+    })

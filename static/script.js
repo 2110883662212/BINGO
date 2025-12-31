@@ -47,5 +47,10 @@ async function sacarNumero() {
         numeroActual = null;
     }
 }
+function reiniciarBingo() {
+    numeroActual = null;
+    etapa = 0;
+}
+
 
 
