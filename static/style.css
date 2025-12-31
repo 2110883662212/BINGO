@@ -1,0 +1,55 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+.bingo {
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+}
+
+.bola {
+    width: 200px;
+    height: 200px;
+    background-image: url("/static/images/bola.gif");
+    background-size: cover;
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    font-weight: bold;
+    line-height: 150px;
+    color: black;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Tabla del historial */
+.historial-tabla {
+    margin: 20px auto;
+    border-collapse: collapse;
+    max-width: 600px;
+}
+
+.historial-tabla td {
+    border: 1px solid #000;
+    padding: 5px 8px; /* un poco más compacto */
+    font-size: 16px;
+    width: 30px;
+    text-align: center;
+}
+
+/* Celda marcada en rojo cuando sale el número */
+.historial-tabla td.salido {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
